@@ -37,3 +37,26 @@
 - [LinEnum](https://github.com/rebootuser/LinEnum)
 - [Linux Exploit Suggestor](https://github.com/mzet-/linux-exploit-suggester)
 - [Linux Priv Checker](https://github.com/sleventyeleven/linuxprivchecker)
+
+## Kernel Exploits
+![alt text](image.png)
+
+Tools: [Kernal Exploits](https://github.com/lucyoa/kernel-exploits)
+
+- Get kernal version
+![alt text](image-1.png)
+
+- Search for exploit
+![alt text](image-3.png)
+
+- Run Exploit Suggestor
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+## Escalation via Stored Passwords
+- history
+- cat .bash_history
+- [Looting for password](https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/#checklists)
+
+## Escalation via Weak File Permissions
