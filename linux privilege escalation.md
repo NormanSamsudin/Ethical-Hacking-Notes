@@ -40,23 +40,23 @@
 
 ## Kernel Exploits
 
-![alt text](image.png)
+![alt text](image/image.png)
 
 Tools: [Kernal Exploits](https://github.com/lucyoa/kernel-exploits)
 
 - Get kernal version
   
-![alt text](image-1.png)
+![alt text](image/image-1.png)
 
 - Search for exploit
   
-![alt text](image-3.png)
+![alt text](image/image-3.png)
 
 - Run Exploit Suggestor
   
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
+![alt text](image/image-4.png)
+![alt text](image/image-5.png)
+![alt text](image/image-6.png)
 
 ## Escalation via Stored Passwords
 - history
