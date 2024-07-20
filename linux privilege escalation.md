@@ -94,3 +94,44 @@ hashcat -m 1800 hash /usr/share/wordlist/common.txt --show
 
 - Reference for hash mode : [Hashing Types](https://hashcat.net/wiki/doku.php?id=example_hashes)
 
+## Escalation via SSH Keys
+
+```bash
+find / -name authorized_keys 2> /dev/null
+find / -name id_rsa 2> /dev/null (private key)
+```
+
+- id_rsa
+
+![alt text](image-13.png)
+
+```bash
+nano id_rsa
+chmod 600 id_rsa
+ssh -i id_rsa root@<ip-address>
+```
+
+![alt text](image-14.png)
+
+## Sudo Privilege Escalation
+
+![alt text](image-15.png)
+
+### Exploitation
+
+- [GTFOBin](https://gtfobins.github.io/)
+- [Linux PrivEsc Playground](https://tryhackme.com/room/privescplayground)
+
+## Escalation via intended Functionality
+
+- Example : wget (where user usually used to download file)
+- If the exploitation not consist within the GTFOBin, the still will be other way to exploit, Google is the keyword.
+
+Example: [wget](https://veteransec.com/2018/09/29/hack-the-box-sunday-walkthrough/)
+
+## Escalation via LD_PRELOAD
+
+![alt text](image-16.png)
+
+What is LD_PRELOAD ?
+
