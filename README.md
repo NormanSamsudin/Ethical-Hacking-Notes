@@ -5,9 +5,10 @@ This repository is dedicated to preserving all my essential notes accumulated du
 # Contents
 
 1. Linux Privilege Escalation
-2. Open Source Intelligence
-3. Web Application Pentest
-4. Active Directory
-5. Wifi Hacking
+2. Windows Privilege Escalation
+3. Open Source Intelligence
+4. Web Application Pentest
+5. Active Directory
+6. Wifi Hacking
    
 

