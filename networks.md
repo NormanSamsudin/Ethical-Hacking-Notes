@@ -34,5 +34,27 @@ mget *.c
 
 ![alt text](image-36.png)
 
-## basic ftp comands
+## Established Connection of Network File Sharing
 
+//nak tengok folder apa yang kita boleh amik untuk mount
+
+```bash
+showmount -e [ip address] 
+```
+
+//buat file dlu utk tempat nak mountkan, 
+
+```bash
+mkdir /mnt/[vm name]
+```
+
+//execute mount 
+
+```bash
+mount -t nfs [ip address]:[directory] /mnt/[vm name]
+```
+
+ The /mnt directory is often used as a mount point for external or temporary file systems, and it's not typically the location for storing SSH keys.
+
+Example:
+![alt text](image-37.png)
