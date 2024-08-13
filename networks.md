@@ -34,7 +34,11 @@ mget *.c
 
 ![alt text](image-36.png)
 
-## Established Connection of Network File Sharing
+Others
+
+![alt text](image-65.png)
+
+## Establish Connection of Network File Sharing
 
 //nak tengok folder apa yang kita boleh amik untuk mount
 
@@ -58,3 +62,13 @@ mount -t nfs [ip address]:[directory] /mnt/[vm name]
 
 Example:
 ![alt text](image-37.png)
+
+## Samba file server
+
+![alt text](image-62.png)
+
+![alt text](image-63.png)
+
+![alt text](image-64.png)
+
+[more information](https://medium.com/@ibo1916a/smbclient-command-2803de274e46)
