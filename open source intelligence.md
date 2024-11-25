@@ -1,24 +1,24 @@
 ## Google Dorking
 
-![alt text](image-17.png)
+![alt text](images/image-17.png)
 
-![alt text](image-18.png)
+![alt text](images/image-18.png)
 
-## Reverse Image Searching
+## Reverse images/image Searching
 
-![alt text](image-19.png)
+![alt text](images/image-19.png)
 
-![alt text](image-20.png)
+![alt text](images/image-20.png)
 
 - [TinEye](https://tineye.com/)
 
-![alt text](image-21.png)
+![alt text](images/image-21.png)
 
 ## View Exif Data
 
 [Jimpl](https://jimpl.com/)
 
-![alt text](image-22.png)
+![alt text](images/image-22.png)
 
 ## Discover Email Address
 
@@ -64,11 +64,11 @@
 
 ## Discovering Birthdate
 
-![alt text](image-23.png)
+![alt text](images/image-23.png)
 
 ## Discovering Resume
 
-![alt text](image-24.png)
+![alt text](images/image-24.png)
 
 ## Twitter OSINT
 
@@ -91,7 +91,7 @@
 
 ## Tiktok OSINT
 
-- Reverse image from the tiktok
+- Reverse images/image from the tiktok
 
 ## Website OSINT
 
@@ -130,17 +130,17 @@
 
 - recon-ng
 
-![alt text](image-25.png)
+![alt text](images/image-25.png)
 
-![alt text](image-26.png)
+![alt text](images/image-26.png)
 
-![alt text](image-27.png)
+![alt text](images/image-27.png)
 
 - Maltego
 - Hunchly - https://hunch.ly
 
 ## OSINT Report
 
-![alt text](image-28.png)
+![alt text](images/image-28.png)
 
-![alt text](image-29.png)
+![alt text](images/image-29.png)
